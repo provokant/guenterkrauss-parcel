@@ -1,0 +1,6 @@
+# External Dependencies
+node_modules
+# Distributed built files
+dist
+# Temporary files
+.cache
