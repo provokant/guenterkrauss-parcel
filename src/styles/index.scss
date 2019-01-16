@@ -10,13 +10,17 @@ section {
   position: -ms-sticky;
   position: -o-sticky;
   display: flex; flex-direction: column; justify-content: start; 
-  height: 100vh;
+  height: 90vh;
   overflow: hidden;
 
   @media (min-width: $breakpoint) {
-    height: 50vh;
+    height: 80vh;
   }
+}
 
+section,
+article > header,
+article > footer {
   // color: $nls-color-white;
 
   &.--selected {
