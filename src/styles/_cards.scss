@@ -1,0 +1,15 @@
+@import "variables";
+
+.cards {
+  $this-horizontal-margin: 2rem;
+
+  display: flex; flex-wrap: wrap;
+  margin: 0 ($this-horizontal-margin * .5); padding: 0;
+
+  &__item {
+    flex: 1 1 30%;
+    list-style-type: none;
+    border: 1px solid $nls-color-white; border-radius: 0.2rem;
+    padding: 2rem 3rem; margin: 1rem $this-horizontal-margin * .5;
+  }
+}

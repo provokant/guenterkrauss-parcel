@@ -1,3 +1,6 @@
-import main from './main';
+import events from './events';
+import './styles/index.scss';
 
-main();
+
+events();
+// console.log(events);

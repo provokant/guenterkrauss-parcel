@@ -1,0 +1,14 @@
+@import "./variables";
+
+.columns { 
+  display: flex; flex-flow: column; flex-wrap: nowrap;
+
+  @media (min-width: $breakpoint) {
+    flex-flow: row;
+  }
+
+  &__item {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+}
