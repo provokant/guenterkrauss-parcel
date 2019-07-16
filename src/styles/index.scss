@@ -1,125 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "variables";
 @import "base";
 @import "helpers";
 
 section {
-  top: 0;
-  position: sticky;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -ms-sticky;
-  position: -o-sticky;
-  display: flex; flex-direction: column; justify-content: start; 
-  height: 90vh;
-  overflow: hidden;
+  @apply .top-0 .sticky .flex .flex-col .justify-start .h-screen .overflow-hidden;
+}
 
-  @media (min-width: $breakpoint) {
-    height: 80vh;
+article {
+  
+  &.--clone {
+    color: $nls-color-white;
   }
 }
 
 section,
 article > header,
 article > footer {
-  // color: $nls-color-white;
-
-  &.--selected {
-
-  }
-
-  &.--selected,
-  &.--full-height {
-    height: 100vh;
-  }
+  z-index: 0;
 
   &.--black {
     background: $nls-color-black;
     color: $nls-color-white;
-    
-    .teaser {
-
-      &:after {
-        content: '';
-        position: absolute; top: 0; left: 0;
-        height: 100%; width: 100%;
-        background: linear-gradient(to top, $nls-color-black 0%, rgba($nls-color-black, 0) 50%);
-      }
-    }
   }
   
   &.--green {
     background: $nls-color-green;
-    
-    .teaser {
-
-      &:after {
-        content: '';
-        position: absolute; top: 0; left: 0;
-        height: 100%; width: 100%;
-        background: linear-gradient(to top, $nls-color-green 0%, rgba($nls-color-green, 0) 50%);
-      }
-    }
   }
     
   &.--blue {
     background: $nls-color-blue;
-    
-    .teaser {
-
-      &:after {
-        content: '';
-        position: absolute; top: 0; left: 0;
-        height: 100%; width: 100%;
-        background: linear-gradient(to top,  $nls-color-blue 0%, rgba( $nls-color-blue, 0) 50%);
-      }
-    }
   }
     
   &.--violet {
     background: $nls-color-violet;
-
-    .teaser {
-
-      &:after {
-        content: '';
-        position: absolute; top: 0; left: 0;
-        height: 100%; width: 100%;
-        background: linear-gradient(to top, $nls-color-violet 0%, rgba($nls-color-violet, 0) 50%);
-      }
-    }
   }
     
   &.--purple {
     background: $nls-color-purple;
-
-    .teaser {
-
-      &:after {
-        content: '';
-        position: absolute; top: 0; left: 0;
-        height: 100%; width: 100%;
-        background: linear-gradient(to top, $nls-color-purple 0%, rgba($nls-color-purple, 0) 50%);
-      }
-    }
   }  
 
   &.--pink {
     background: $nls-color-pink;
-    
-    .teaser {
-
-      &:after {
-        content: '';
-        position: absolute; top: 0; left: 0;
-        height: 100%; width: 100%;
-        background: linear-gradient(to top, $nls-color-pink 0%, rgba( $nls-color-pink, 0) 50%);
-      }
-    }
   }
 
   .teaser {
-    overflow: hidden;
-    padding: 5rem 3rem;
+    @apply .flex .h-full;
+
+    &.--start {
+      background-image: url("./../assets/first-impression.jpg");
+
+      @apply .bg-cover;
+    }
   }
 }
 

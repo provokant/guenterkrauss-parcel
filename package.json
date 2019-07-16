@@ -1,5 +1,5 @@
 {
-  "name": "nls-parcel-dailyshit",
+  "name": "nls-parcel-papyros",
   "version": "1.0.0-0",
   "description": "",
   "main": "index.html",
@@ -11,8 +11,12 @@
   "author": "Michael Werner Czechowski <mail@dailysh.it>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "parcel-bundler": "^1.10.3",
     "sass": "^1.16.0",
-    "typescript": "^3.2.1"
+    "tailwindcss": "^1.0.5",
+    "typescript": "^3.2.1",
+    "autoprefixer": "^9.6.1"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.10.3"
   }
 }

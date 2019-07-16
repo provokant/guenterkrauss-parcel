@@ -18,8 +18,8 @@ html, body {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
 }
 
 svg {
@@ -45,58 +45,31 @@ h3 {
 
 p {
   line-height: 125%;
+  text-align: justify;
 }
 
 a {
   color: $nls-color-white;
 }
 
-img {
-  @media (max-width: $breakpoint) {
-    margin: 0 auto 2rem;
-    display: block;
-  }
-
-  mix-blend-mode: color-burn;  
-  max-width: 100%; height: auto; width: 100%;
-}
-
 article {
 
   header {
-    position: sticky;
+    @apply .sticky .overflow-hidden .h-screen;
+
     bottom: 100vh;
-    height: 100vh;
-    overflow: hidden;
   }
 
   footer {
-    top: 0;
-    position: sticky;
-    position: -webkit-sticky;
-    position: -moz-sticky;
-    position: -ms-sticky;
-    position: -o-sticky;
+    @apply .top-0 .sticky;
 
     section {
-      min-height: 200vh;
+      min-height: 100vh;
       // padding: 5rem 3rem;
       padding-top: 6rem;
 
       p {
         margin: 1rem 3rem 6rem;
-      }
-
-      object {
-        position: absolute;
-        bottom: 0;
-        display: block;
-        margin: 5rem auto 0;
-        width: 100vw;
-
-        @media (min-width: $breakpoint-width) {
-          width: 80vw;
-        }
       }
     }
   }
