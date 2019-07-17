@@ -1,0 +1,22 @@
+.swiper {
+
+  // @apply .py-10;
+
+  &-container {
+    @apply .h-full;
+  }
+
+  &-wrapper {
+
+  }
+
+  &-slide {
+
+    // width: auto;
+    // width: 60%;
+    
+    img {
+      @apply .h-full .mx-auto;
+    }
+  }
+}

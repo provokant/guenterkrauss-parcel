@@ -2,12 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./../../node_modules/swiper/dist/css/swiper";
+
 @import "variables";
 @import "base";
 @import "helpers";
 
 section {
-  @apply .top-0 .sticky .flex .flex-col .justify-start .h-screen .overflow-hidden;
+  height: 80vh;
+
+  @apply .top-0 .flex .flex-col .justify-start .py-10;
+  // @apply .top-0 .sticky .flex .flex-col .justify-start .h-screen .overflow-hidden;
 }
 
 article {
@@ -58,5 +63,4 @@ article > footer {
   }
 }
 
-@import "cards";
-@import "columns";
+@import "swiper";
