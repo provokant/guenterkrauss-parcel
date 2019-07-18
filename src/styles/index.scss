@@ -57,9 +57,9 @@ article > footer {
     @apply .flex .h-full;
 
     &.--start {
-      background-image: url("./../assets/first-impression.jpg");
-
-      @apply .bg-cover;
+      .container {
+        @apply .mx-auto .z-10;
+      }
 
       .fade-in {
         @apply .opacity-0;
@@ -81,6 +81,7 @@ article > footer {
 
       .container {
         font-size: 8rem;
+        font-family: "IBM Plex Sans Condensed";
         // line-height: 70%;
         -webkit-text-stroke: 1px white;
 

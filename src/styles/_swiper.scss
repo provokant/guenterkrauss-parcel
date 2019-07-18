@@ -25,3 +25,9 @@
     }
   }
 }
+  
+#first-impression .swiper {
+  &-slide {
+    @apply .bg-cover .bg-top .bg-no-repeat;
+  }
+}

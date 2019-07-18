@@ -31,7 +31,8 @@ new Swiper ('#first-impression', {
   slidesPerView: 1,
   // centeredSlides: true,
   spaceBetween: 0,
-  // freeMode: true,
+  effect: 'fade',
+  allowTouchMove: false,
   loop: true,
   speed: 1200,
 
