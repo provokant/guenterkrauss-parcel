@@ -12,11 +12,16 @@
 
   &-slide {
 
+    @apply .flex .items-end;
+
     // width: auto;
     // width: 60%;
     
     img {
-      @apply .h-full .mx-auto;
+      // @apply .h-full .mx-auto;
+      max-height: 100%;
+
+      @apply .w-full .h-auto;
     }
   }
 }

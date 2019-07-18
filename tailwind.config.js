@@ -6,6 +6,8 @@ module.exports = {
       // padding: '2rem',
     },
   },
-  variants: {},
+  variants: {
+    textColor: ['hover'],
+  },
   plugins: []
 }
