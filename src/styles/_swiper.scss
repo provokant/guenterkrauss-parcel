@@ -8,21 +8,22 @@
 
   &-wrapper {
 
-  }
+    @apply .w-full .h-full;
 
-  &-slide {
+    > div {
 
-    @apply .bg-cover .bg-center .bg-no-repeat .opacity-0;
-    
-    img {
-      // @apply .h-full .mx-auto;
-      max-height: 100%;
-
-      @apply .w-full .h-auto;
-    }
-
-    &.--active {
-      @apply .opacity-100;
+      @apply .bg-cover .bg-center .bg-no-repeat .hidden .w-full .h-full;
+      
+      img {
+        // @apply .h-full .mx-auto;
+        max-height: 100%;
+  
+        @apply .w-full .h-auto;
+      }
+  
+      &.--active {
+        @apply .block;
+      }
     }
   }
 }
