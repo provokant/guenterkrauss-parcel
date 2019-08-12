@@ -12,10 +12,7 @@
 
   &-slide {
 
-    @apply .flex .items-end;
-
-    // width: auto;
-    // width: 60%;
+    @apply .bg-cover .bg-center .bg-no-repeat .opacity-0;
     
     img {
       // @apply .h-full .mx-auto;
@@ -23,11 +20,9 @@
 
       @apply .w-full .h-auto;
     }
-  }
-}
-  
-#first-impression .swiper {
-  &-slide {
-    @apply .bg-cover .bg-top .bg-no-repeat;
+
+    &.--active {
+      @apply .opacity-100;
+    }
   }
 }
