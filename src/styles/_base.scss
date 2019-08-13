@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed|IBM+Plex+Sans:100,400,500,700|IBM+Plex+Serif:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed|IBM+Plex+Sans:100,200,400,500,700');
 
 html, body {
   margin: 0;
@@ -8,7 +8,7 @@ html, body {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'IBM Plex Sans Condensed', serif;
+  // font-family: 'IBM Plex Sans Condensed', serif;
   
   @apply .mb-4;
 }
@@ -32,6 +32,10 @@ article {
   footer {
     
     @apply sticky top-0 bg-gray-900 text-white .py-20;
+
+    h1 {
+      @apply mt-10 text-2xl font-hairline;
+    }
 
     p {
       @apply mb-10;

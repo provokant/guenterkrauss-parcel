@@ -11,8 +11,9 @@ const activeModal = {
     return document.getElementById(this.id)
   }
 }
-const modals = document.querySelectorAll('.modal')
+const modals = document.querySelectorAll('[data-modal]')
 const modalTogglers = document.querySelectorAll('[data-modal-target]')
+const modalCloseTogglers = document.querySelectorAll('[data-modal-close]')
 
 let width = updateWidth()
 let activePosition = Math.floor(Math.random() * children.length)
@@ -31,6 +32,12 @@ window.addEventListener('resize', () => {
 modalTogglers.forEach(toggler => {
   toggler.addEventListener('click', e => {
     showModal(e.target.dataset.modalTarget)
+  })
+})
+
+modalCloseTogglers.forEach(toggler => {
+  toggler.addEventListener('click', e => {
+    closeModal()
   })
 })
 
@@ -59,10 +66,21 @@ function showModal(id: string): void {
   activeModal.id = id
   activeModal.isActive = true
 
-  console.log(activeModal.element())
+  activeModal.element().className = activeClass
+  bodyFixed()
 }
 
 function closeModal(): void {
+  activeModal.element().className = ''
   activeModal.id = null
   activeModal.isActive = false
+  bodyScrollable()
+}
+
+function bodyScrollable(): void {
+  document.body.className = ''
+}
+
+function bodyFixed(): void {
+  document.body.className = '--no-scroll'
 }
