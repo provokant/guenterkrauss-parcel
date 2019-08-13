@@ -2,26 +2,40 @@ import  './styles/index.scss'
 
 const canvas = document.querySelector('header')
 const wrapper = document.querySelector('.swiper-wrapper')
-const width = canvas.offsetWidth
 const children = wrapper.children
 const activeClass = '--active'
 
-let activePosition = 0
+let width = updateWidth()
+let activePosition = Math.floor(Math.random() * children.length)
+
+updateClasses(activePosition)
 
 canvas.addEventListener('mousemove', (e) => {
-  const currentPosition = position(e)
-  updateActive(currentPosition)
+  const nextPosition = position(e)
+  updateActive(nextPosition)
+})
+
+window.addEventListener('resize', () => {
+  updateWidth()
 })
 
 function position(e) {
   return Math.floor(e.pageX / width * children.length)
 }
 
-function updateActive(currentPosition) {
-  if (currentPosition === activePosition) return
+function updateActive(nextPosition) {
+  if (nextPosition === activePosition) return
 
+  updateClasses(nextPosition)
+
+  activePosition = nextPosition
+}
+
+function updateClasses(position) {
   children[activePosition].className = ''
-  children[currentPosition].className = activeClass
+  children[position].className = activeClass
+}
 
-  activePosition = currentPosition
+function updateWidth() {
+  return width = canvas.offsetWidth
 }
