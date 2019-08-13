@@ -2,94 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-// @import "./../../node_modules/swiper/dist/css/swiper";
-
-@import "variables";
-@import "mixins";
 @import "base";
-@import "helpers";
 
 section {
   max-height: 100vh;
 
-  @apply .top-0 .flex .flex-col .justify-start .py-20;
-  // @apply .top-0 .sticky .flex .flex-col .justify-start .h-screen .overflow-hidden;
-}
+  @apply top-0 flex flex-col justify-start py-20;
 
-article {
-  
-  &.--clone {
-    color: $nls-color-white;
-  }
-}
+  &.about {
+    @apply sticky top-0 h-screen;
 
-section,
-article > header,
-article > footer {
-  z-index: 0;
+    .container {
+      @apply h-full;
 
-  &.--black {
-    background: $nls-color-black;
-    color: $nls-color-white;
-  }
-  
-  &.--green {
-    background: $nls-color-green;
-  }
-    
-  &.--blue {
-    background: $nls-color-blue;
-  }
-    
-  &.--violet {
-    background: $nls-color-violet;
-  }
-    
-  &.--purple {
-    background: $nls-color-purple;
-  }  
+      &-column {
 
-  &.--pink {
-    background: $nls-color-pink;
-  }
+        @screen md {
+          @apply w-1/2;
+        }
 
-  .teaser {
-    @apply .flex .h-full;
+        &.links {
 
-    &.--start {
-      .container {
-        @apply .mx-auto .z-10;
-      }
+          ul {
 
-      .fade-in {
-        @apply .opacity-0;
+            @apply flex flex-col justify-around h-full items-start;
+            
+            li {
+              @apply cursor-pointer text-2xl font-hairline border-pink-500 border-b-4;
 
-        animation: fadeIn 4000ms 200ms cubic-bezier(0.5, -0.5, 0.3, 1.3) forwards;
-
-        @keyframes fadeIn {
-          0% { opacity: 0; }
-          100% { opacity: 1; }
+              &:hover {
+                @apply border-transparent opacity-50;
+              }
+            }
+          }
         }
       }
     }
-
-    .headline {
-
-      @apply .absolute .bottom-0 .left-0 .right-0 .z-10 .w-full;
-
-      mix-blend-mode: color-dodge;
-
-      .container {
-        font-size: 8rem;
-        font-family: "IBM Plex Sans Condensed";
-        // line-height: 70%;
-        -webkit-text-stroke: 1px white;
-
-        @apply .font-bold .text-black .text-right .mx-auto .opacity-50;
-        // @include stroke(3px, white);
-      }
-    }
   }
 }
+
+.teaser {
+  @apply flex h-full;
+
+  .container {
+    @apply z-10;
+  }
+}
+
 
 @import "swiper";
