@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "base";
+@import 'base';
 
 section {
   min-height: 100vh;
@@ -50,7 +50,7 @@ section {
 }
 
 [data-modal] {
-  @apply fixed inset-0 bg-red-700 text-white overflow-y-auto opacity-75;
+  @apply fixed inset-0 bg-red-700 text-white overflow-y-auto opacity-75 z-10;
 
   transform: translate3D(100vw, 0, 0);
   transition: all 460ms ease;
@@ -70,21 +70,24 @@ section {
   }
 
   h1 {
-    @apply text-2xl font-hairline mt-3;
+    @apply text-2xl font-hairline mt-8;
   }
 
   h2 {
-    @apply text-xl font-light mt-12;
+    @apply text-xl mt-12;
   }
 
-  // .container {
-    
-  //   screen md {
-  //     p {
-  //       @apply w-3/5;
-  //     }
-  //   }
-  // }
+  p {
+    @apply leading-relaxed text-red-200;
+
+    @screen lg {
+      @apply w-2/3;
+    }
+  }
+
+  .container {
+    @apply pb-32;
+  }
 }
 
 body {
@@ -94,4 +97,4 @@ body {
   }
 }
 
-@import "swiper";
+@import 'swiper';

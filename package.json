@@ -19,6 +19,8 @@
   "dependencies": {
     "@types/swiper": "^4.4.3",
     "parcel-bundler": "^1.10.3",
+    "posthtml-img-autosize": "^0.1.4",
+    "posthtml-include": "^1.2.0",
     "swiper": "^4.5.0"
   }
 }
