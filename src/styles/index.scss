@@ -50,10 +50,10 @@ section {
 }
 
 [data-modal] {
-  @apply fixed inset-0 bg-red-700 text-white overflow-y-auto opacity-75 z-10;
+  @apply fixed inset-0 bg-red-700 text-white overflow-y-auto opacity-0 z-10;
 
   transform: translate3D(100vw, 0, 0);
-  transition: all 460ms ease;
+  transition: all 460ms cubic-bezier(.86,0,.32,1);
   
   &.--active {
     @apply block opacity-100;

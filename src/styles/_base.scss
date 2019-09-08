@@ -36,7 +36,7 @@ article {
   }
 
   footer {
-    @apply sticky top-0 bg-gray-900 text-gray-400 pb-20;
+    @apply sticky top-0 bg-gray-900 text-gray-400 pb-20 overflow-x-hidden;
 
     h1 {
       @apply text-2xl font-hairline;
