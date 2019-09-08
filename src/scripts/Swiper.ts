@@ -1,28 +1,81 @@
 export default class Swiper {
 
-  private width
-  private currentPosition
+  private width: number
+  private currentPosition: Point
+  private currentChild: number
   private options: Options
 
   constructor(options?: any) {
     this.resetOptions(options)
     this.width = this.updateWidth()
     this.randomPosition()
-    this.updateClasses(this.currentPosition)
+    this.updateChildren()
     this.attachListener()
   }
 
   private randomPosition(): void {
     const { children } = this.wrapper
 
-    this.currentPosition = Math.floor(Math.random() * children.length)
+    this.currentChild = Math.floor(Math.random() * children.length)
   }
 
   private attachListener(): void {
     this.canvas.addEventListener('mousemove', e => {
-      const nextPosition = this.position(e)
-      this.updateActive(nextPosition)
+
+      const { threshold } = this.options
+      const { clientX, clientY } = e
+
+      if(this.calculateDelta(clientX, clientY) > threshold) {
+        this.setCurrentPosition(clientX, clientY)
+        this.updateChildren()
+      }
+
     })
+    this.canvas.addEventListener('touchmove', e => {
+      // const nextChild = this.position(e)
+      // this.updateActive(nextChild)
+      console.log(e)
+    })
+  }
+
+  private nextChild(): number {
+    const { children } = this.wrapper
+
+    return (this.currentChild + 1) % children.length
+  }
+
+  private setCurrentPosition(x: number, y: number) {
+    this.currentPosition = { x, y }
+  }
+
+  private calculateDelta(clientX: number, clientY: number): number {
+    if (!this.currentPosition) {
+      this.currentPosition = {
+        x: clientX,
+        y: clientY
+      }
+    }
+    
+    const { x , y } = this.currentPosition
+
+    return Math.hypot((clientX - x), (clientY - y))
+  }
+
+  private updateChildren(): void {
+    const { children } = this.wrapper
+    const { childClass } = this.options
+    const nextChild = this.nextChild()
+
+    children[this.currentChild].classList.remove(childClass)
+    children[nextChild].classList.add(childClass)
+
+    this.currentChild = nextChild
+  }
+
+  private updateWidth(): number {
+    const { offsetWidth } = this.canvas
+
+    return this.width = offsetWidth
   }
 
   private resetOptions(options: any): void {
@@ -30,7 +83,8 @@ export default class Swiper {
       ...{
         canvasSelector: 'header',
         wrapperSelector: '.swiper-wrapper',
-        childClass: '--active'
+        childClass: '--active',
+        threshold: 100
       },
       ...options
     }
@@ -44,35 +98,16 @@ export default class Swiper {
     return document.querySelector(this.options.canvasSelector)
   }
 
-  private position(e): number {
-    const { children } = this.wrapper
-
-    return Math.floor(e.pageX / this.width * children.length)
-  }
-
-  private updateActive(nextPosition): void {
-    if (nextPosition === this.currentPosition) return
-
-    this.updateClasses(nextPosition)
-
-    this.currentPosition = nextPosition
-  }
-
-  private updateClasses(position): void {
-    const { children } = this.wrapper
-    const { childClass } = this.options
-
-    children[this.currentPosition].classList.remove(childClass)
-    children[position].classList.add(childClass)
-  }
-
-  private updateWidth(): number {
-    return this.width = this.canvas.offsetWidth
-  }
 }
 
 interface Options {
   canvasSelector: string 
   wrapperSelector: string
   childClass: string
+  threshold: number
+}
+
+interface Point {
+  x: number
+  y: number
 }
