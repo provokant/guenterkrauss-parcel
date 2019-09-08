@@ -1,14 +1,9 @@
 export default class Modals {
 
-  
-  // private classes: Classes
-  // private selectors: Selectors
-  // private activeModal: Modal
   private allModals: NodeListOf<HTMLElement>
   private allTogglers: NodeListOf<HTMLElement>
   private allCloseButtons: NodeListOf<HTMLElement>
   private options: Options
-  // private isActive: boolean
   private activeModal: string
   
   constructor(options?: any) {
@@ -16,23 +11,11 @@ export default class Modals {
     this.resetModals()
     this.selectModals()
     this.attachListeners()
-
-    // this.classes = {
-    //   active: '--active',
-    //   bodyFixed: '--no-scroll'
-    // }
-
-
   }
 
-  public init(
-  ) {
-    // this.selectors = {
-    //   modal: modalSelector,
-    //   toggle: togglerSelector,
-    //   closeButton: closeButtonSelector
-    // }
-
+  public closeAll(): void {
+    this.resetModals()
+    this.restoreBody()
   }
 
   private attachListeners(): void {
@@ -47,8 +30,7 @@ export default class Modals {
     
     this.allCloseButtons.forEach(toggler => {
       toggler.addEventListener('click', e => {
-        this.resetModals()
-        this.modifyBody()
+        this.closeAll()
       })
     })
   }
@@ -65,12 +47,6 @@ export default class Modals {
     this.activeModal = id
     document.getElementById(id).classList.add(modalClass)
   }
-
-  // private resetActiveModal(): void {
-  //   this.activeModal.element().className = ''
-  //   this.activeModal.id = null
-  //   this.activeModal.isActive = false
-  // }
 
   private restoreBody(): void {
     const { bodyClass } = this.options
@@ -114,19 +90,3 @@ interface Options {
   modalClass: string
   bodyClass: string
 }
-
-// interface Modal {
-//   isActive: boolean
-//   id: string
-//   element(): HTMLElement
-// }
-
-// interface Selectors {
-//   modal: string
-//   toggle: string
-//   closeButton: string
-// }
-
-// interface Classes {
-//   [className: string]: string
-// }

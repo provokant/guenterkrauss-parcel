@@ -1,95 +1,20 @@
 import  './styles/index.scss'
 import Modals from './scripts/Modals'
 
-new Modals()
+const modals = new Modals()
 
+document.addEventListener('keydown', e => {
+  const isEscape = 
+    e.keyCode === 27 
+    || e.key === 'Escape' 
+    || e.key === 'Esc'
+    ? true
+    : false
 
-
-// // const canvas = document.querySelector('header')
-// // const wrapper = document.querySelector('.swiper-wrapper')
-// // const children = wrapper.children
-// const activeClass = '--active'
-// const activeModal = {
-//   isActive: false,
-//   id: null,
-//   element: function() {
-//     return document.getElementById(this.id)
-//   }
-// }
-// const modals = document.querySelectorAll('[data-modal]')
-// const modalTogglers = document.querySelectorAll('[data-modal-target]')
-// const modalCloseTogglers = document.querySelectorAll('[data-modal-close]')
-
-// // let width = updateWidth()
-// // let activePosition = Math.floor(Math.random() * children.length)
-
-// // updateClasses(activePosition)
-
-// // canvas.addEventListener('mousemove', e => {
-// //   const nextPosition = position(e)
-// //   updateActive(nextPosition)
-// // })
-
-// // window.addEventListener('resize', () => {
-// //   updateWidth()
-// // })
-
-// modalTogglers.forEach(toggler => {
-//   toggler.addEventListener('click', e => {
-//     showModal(e.target.dataset.modalTarget)
-//   })
-// })
-
-// modalCloseTogglers.forEach(toggler => {
-//   toggler.addEventListener('click', e => {
-//     closeModal()
-//   })
-// })
-
-// // function position(e): number {
-// //   return Math.floor(e.pageX / width * children.length)
-// // }
-
-// // function updateActive(nextPosition): void {
-// //   if (nextPosition === activePosition) return
-
-// //   updateClasses(nextPosition)
-
-// //   activePosition = nextPosition
-// // }
-
-// // function updateClasses(position): void {
-// //   children[activePosition].className = ''
-// //   children[position].className = activeClass
-// // }
-
-// // function updateWidth(): number {
-// //   return width = canvas.offsetWidth
-// // }
-
-// function showModal(id: string): void {
-//   activeModal.id = id
-//   activeModal.isActive = true
-
-//   activeModal.element().className = activeClass
-//   bodyFixed()
-// }
-
-// function closeModal(): void {
-//   activeModal.element().className = ''
-//   activeModal.id = null
-//   activeModal.isActive = false
-//   bodyScrollable()
-// }
-
-// function bodyScrollable(): void {
-//   document.body.className = ''
-// }
-
-// function bodyFixed(): void {
-//   document.body.className = '--no-scroll'
-// }
-
+  if (isEscape) {
+    modals.closeAll()
+  }
+})
 // Tomas sah den eigenen Mund im Gesicht seines Sohnes und dachte: Sonderbar, den eigenen Mund stottern zu sehen.
 
 // »In deinem Artikel stand etwas Wunderbares«, fuhr der Sohn fort, und man konnte sehen, daß es ihn Mühe kostete: »Die Kompromißlosigkeit. Diese Fähigkeit kommt uns allmählich abhanden, der Sinn für eine klare Unterscheidung von Gut und Böse. Man weiß nicht mehr, was es heißt, sich schuldig zu fühlen. Die Kommunisten haben die Ausrede, Stalin hätte sie hinters Licht geführt. Der Mörder entschuldigt sich, indem er sagt, seine Mutter hätte ihn nicht geliebt und er wäre frustriert. Du aber hast auf einmal gesagt: Es gibt keine Ausrede. Niemand war in seinem Inneren unschuldiger als Ödipus. Und trotzdem hat er sich selbst bestraft, als er einsah, was er getan hatte.«
