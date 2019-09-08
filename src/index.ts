@@ -2,7 +2,7 @@ import  './styles/index.scss'
 import Modals from './scripts/Modals'
 import Swiper from './scripts/Swiper'
 
-const swiper = new Swiper({ threshold: 40 })
+const swiper = new Swiper({ threshold: 120 })
 const modals = new Modals()
 
 document.addEventListener('keydown', e => {

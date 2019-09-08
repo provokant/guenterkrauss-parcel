@@ -32,9 +32,14 @@ export default class Swiper {
 
     })
     this.canvas.addEventListener('touchmove', e => {
-      // const nextChild = this.position(e)
-      // this.updateActive(nextChild)
-      console.log(e)
+      const { threshold } = this.options
+      const { changedTouches } = e
+      const { clientX } = changedTouches[0]
+
+      if(this.calculateDelta(clientX) > threshold) {
+        this.setCurrentPosition(clientX)
+        this.updateChildren()
+      }
     })
   }
 
@@ -44,11 +49,11 @@ export default class Swiper {
     return (this.currentChild + 1) % children.length
   }
 
-  private setCurrentPosition(x: number, y: number) {
+  private setCurrentPosition(x: number, y: number = 0) {
     this.currentPosition = { x, y }
   }
 
-  private calculateDelta(clientX: number, clientY: number): number {
+  private calculateDelta(clientX: number, clientY: number = 0): number {
     if (!this.currentPosition) {
       this.currentPosition = {
         x: clientX,
