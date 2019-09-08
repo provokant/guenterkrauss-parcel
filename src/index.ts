@@ -1,6 +1,8 @@
 import  './styles/index.scss'
 import Modals from './scripts/Modals'
+import Swiper from './scripts/Swiper'
 
+const swiper = new Swiper()
 const modals = new Modals()
 
 document.addEventListener('keydown', e => {
