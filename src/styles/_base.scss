@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed|IBM+Plex+Sans:100,200,400,500,700');
+// @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed|IBM+Plex+Sans:100,200,400,500,700|Merriweather|Abril+Fatface?display=swap');
 
 html, body {
   margin: 0;
   padding: 0;
   font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1 {
+  font-family: Merriweather, 'Times New Roman', Times, serif;
 }
 
 h1, h2, h3, h4, h5 {
@@ -30,9 +34,48 @@ a {
 article {
 
   header {
-    @apply sticky overflow-hidden h-screen;
+    @apply sticky top-0 overflow-hidden h-screen;
 
     bottom: 100vh;
+  }
+
+  section {
+    min-height: 100vh;
+  
+    @apply sticky flex flex-col justify-start py-20 bg-white;
+  
+    &.about {
+      @apply h-screen;
+  
+      .container {
+        @apply h-full;
+  
+        &-column {
+  
+          @screen md {
+            @apply w-1/2;
+          }
+  
+          &.links {
+  
+            ul {
+  
+              @apply flex flex-col justify-around h-full items-start;
+              
+              li {
+                @apply cursor-pointer text-2xl font-hairline border-red-500 border-b-4;
+
+                font-family: Merriweather, 'Times New Roman', Times, serif;
+  
+                &:hover {
+                  @apply border-transparent opacity-50;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   footer {

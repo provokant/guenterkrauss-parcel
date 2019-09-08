@@ -1,0 +1,44 @@
+[data-modal] {
+  @apply fixed inset-y-0 bg-red-700 text-white overflow-y-auto opacity-100 z-10;
+
+  // transform: translate3D(, 0, 0);
+  left: 100vw;
+  right: -100vw;
+  transition: all 660ms cubic-bezier(.86,0,.32,1);
+  
+  &.--active {
+    @apply block opacity-100;
+
+    // transform: translate3D(0, 0, 0);
+    left: 0;
+    right: 0;
+  }
+
+  button {
+    @apply absolute top-0 right-0 p-10 outline-none;
+
+    &:hover {
+      @apply opacity-50;
+    }
+  }
+
+  h1 {
+    @apply text-2xl font-hairline mt-8;
+  }
+
+  h2 {
+    @apply text-xl mt-12;
+  }
+
+  p {
+    @apply leading-relaxed text-red-200;
+
+    @screen lg {
+      @apply w-2/3;
+    }
+  }
+
+  .container {
+    @apply pb-32;
+  }
+}
