@@ -1,9 +1,11 @@
 import  './styles/index.scss'
 import Modals from './scripts/Modals'
 import Swiper from './scripts/Swiper'
+import Parallax from './scripts/Parallax'
 
 const swiper = new Swiper({ threshold: 120 })
 const modals = new Modals()
+const parallax = new Parallax()
 
 document.addEventListener('keydown', e => {
   const isEscape = 

@@ -45,7 +45,7 @@ article {
     @apply sticky flex flex-col justify-start py-20 bg-white;
   
     &.about {
-      @apply h-screen;
+      height: 150vh;
   
       .container {
         @apply h-full;
@@ -60,10 +60,10 @@ article {
   
             ul {
   
-              @apply flex flex-col justify-around h-full items-start;
+              @apply flex flex-col justify-around h-full items-start items-end;
               
               li {
-                @apply cursor-pointer text-2xl font-hairline border-red-500 border-b-4;
+                @apply cursor-pointer text-2xl font-hairline border-red-500 border-b-4 block;
 
                 font-family: Merriweather, 'Times New Roman', Times, serif;
   
