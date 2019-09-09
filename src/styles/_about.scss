@@ -1,0 +1,46 @@
+.about {
+  height: 150vh;
+
+  .container {
+    @apply h-full flex-col;
+
+    @screen md {
+      @apply flex-row;
+    }
+
+    &-column {
+      @apply w-full;
+
+      @screen md {
+        @apply w-1/2;
+      }
+
+      &.links {
+        @apply h-full;
+
+        ul {
+
+          @apply flex flex-col justify-around h-full items-start;
+          
+          @screen md {
+            @apply items-end;
+          }
+
+          li {
+            @apply cursor-pointer text-2xl font-hairline border-red-500 border-b-4 block;
+
+            font-family: Merriweather, 'Times New Roman', Times, serif;
+
+            @screen md {
+              @apply text-3xl;
+            }
+
+            &:hover {
+              @apply border-transparent opacity-50;
+            }
+          }
+        }
+      }
+    }
+  }
+}

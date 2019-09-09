@@ -43,39 +43,6 @@ article {
     min-height: 100vh;
   
     @apply sticky flex flex-col justify-start py-20 bg-white;
-  
-    &.about {
-      height: 150vh;
-  
-      .container {
-        @apply h-full;
-  
-        &-column {
-  
-          @screen md {
-            @apply w-1/2;
-          }
-  
-          &.links {
-  
-            ul {
-  
-              @apply flex flex-col justify-around h-full items-start items-end;
-              
-              li {
-                @apply cursor-pointer text-2xl font-hairline border-red-500 border-b-4 block;
-
-                font-family: Merriweather, 'Times New Roman', Times, serif;
-  
-                &:hover {
-                  @apply border-transparent opacity-50;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
 
   footer {
