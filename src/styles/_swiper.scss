@@ -1,26 +1,28 @@
 .swiper {
 
   &-container {
-    @apply .h-full;
+    @apply h-full;
   }
 
   &-wrapper {
 
-    @apply .w-full .h-full;
+    @apply w-full h-full bg-black;
 
     > div {
 
-      @apply .bg-cover .bg-center .bg-no-repeat .hidden .w-full .h-full;
+      @apply absolute inset-0 bg-cover bg-center bg-no-repeat block opacity-0 w-full h-full;
+
+      transition: opacity 180ms ease-in-out;
       
       img {
-        // @apply .h-full .mx-auto;
+        // @apply h-full mx-auto;
         max-height: 100%;
   
-        @apply .w-full .h-auto;
+        @apply w-full h-auto;
       }
   
       &.--active {
-        @apply .block;
+        @apply opacity-100;
       }
     }
   }

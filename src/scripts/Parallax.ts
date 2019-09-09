@@ -6,8 +6,31 @@ export default class Parallax {
   constructor(options?: any) {
     this.resetOptions(options)
     this.assignElements()
+    this.attachListeners()
+  }
 
-    console.log(this.elements)
+  private attachListeners(): void {
+    window.addEventListener('DOMContentLoaded', () => this.scrollEvent(), false)
+  }
+
+  private scrollEvent(): void {
+    this.elements.forEach(({ element, parentNode, parallax }) => {
+      // console.log(parentNode)
+      const { top, bottom } = parentNode.getBoundingClientRect()
+      const { innerHeight } = window
+    
+      if (top <= innerHeight && bottom >= 0) {
+        const threshold = Math.floor((innerHeight - top) / innerHeight * 1000) / 1000
+        const factor = innerHeight * parallax
+        const y = factor - (1 + threshold * factor)
+
+        element.style.transform = `translate3d(0, ${y}px, 0)`
+      }
+    })
+
+    // console.log('s')
+
+    requestAnimationFrame(() => this.scrollEvent())
   }
 
   private assignElements(): void {
@@ -17,12 +40,10 @@ export default class Parallax {
       const { dataset, parentNode } = element
       const { parallax } = dataset
 
-      console.log(element)
-
       this.elements.push({
         element, 
         parentNode,
-        parallax: Number.parseFloat(parallax)
+        parallax
       })
     }, this)
   }
@@ -42,7 +63,7 @@ interface Options {
 }
 
 interface ParallaxObject {
-  element: Node
-  parentNode: Node
+  element: HTMLElement
+  parentNode: HTMLElement
   parallax: number
 }
