@@ -15,7 +15,6 @@ export default class Parallax {
 
   private scrollEvent(): void {
     this.elements.forEach(({ element, parentNode, parallax }) => {
-      // console.log(parentNode)
       const { top, bottom } = parentNode.getBoundingClientRect()
       const { innerHeight } = window
     
@@ -27,8 +26,6 @@ export default class Parallax {
         element.style.transform = `translate3d(0, ${y}px, 0)`
       }
     })
-
-    // console.log('s')
 
     requestAnimationFrame(() => this.scrollEvent())
   }
