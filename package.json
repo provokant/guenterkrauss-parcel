@@ -5,8 +5,9 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "start": "node prebuild && parcel index.html --open",
+    "build": "node prebuild && parcel build index.html",
+    "prebuild": "node prebuild.js"
   },
   "author": "Michael Werner Czechowski <mail@dailysh.it>",
   "license": "Apache-2.0",
@@ -21,6 +22,24 @@
     "parcel-bundler": "^1.10.3",
     "posthtml-img-autosize": "^0.1.4",
     "posthtml-include": "^1.2.0",
+    "sharp": "^0.23.0",
     "swiper": "^4.5.0"
+  },
+  "srcSetAssets": {
+    "assetsPath": "./src/assets/",
+    "breakpoints": {
+      "640w": "640px",
+      "768w": "768px",
+      "1024w": "1024px",
+      "1280w": "1280px"
+    },
+    "allowedExtensions": [
+      ".png",
+      ".PNG",
+      ".jpg",
+      ".JPG",
+      ".jpeg",
+      ".JPEG"
+    ]
   }
 }

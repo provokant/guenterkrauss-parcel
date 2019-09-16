@@ -4,7 +4,6 @@
 
 @import 'base';
 
-
 .teaser {
   @apply flex h-full;
 
@@ -17,6 +16,57 @@ body {
 
   &.--no-scroll {
     @apply overflow-hidden;
+  }
+
+  &.--loading {
+    @apply overflow-hidden h-screen;
+
+    main {
+      @apply opacity-0;
+    }
+
+    .loading-screen {
+      $this-duration: 340ms;
+      
+      @apply fixed inset-0;
+
+      .container {
+        @apply flex h-full items-center justify-center;
+      }
+
+      .head {
+        transform: scale(5);
+        animation: gkAnimation $this-duration cubic-bezier(.86,0,.32,1) forwards;
+
+        @keyframes gkAnimation {
+          0% {
+            opacity: 0;
+            transform: scale(5);
+          }
+          
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      }
+
+      .sub {
+        opacity: 0;
+        animation: subAnimation 840ms ease-out forwards;
+        animation-delay: $this-duration;
+
+        @keyframes subAnimation {
+          0% {
+            opacity: 0;
+          }
+          
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 }
 

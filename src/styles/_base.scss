@@ -31,6 +31,12 @@ p {
 a {
 }
 
+main {
+  @apply opacity-100;
+
+  transition: opacity 480ms cubic-bezier(.86,0,.32,1);
+}
+
 article {
 
   header {
