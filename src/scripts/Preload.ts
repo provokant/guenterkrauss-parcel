@@ -18,8 +18,6 @@ export default class Preload {
   private preloadImages() {
     if (!this.allImages) return;
 
-    console.log(this.allImages)
-
     window.setTimeout(() => {
       this.resetBody()
       this.hideLoading()
