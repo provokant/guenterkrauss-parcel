@@ -1,29 +1,21 @@
 .swiper {
+  @apply h-full;
 
-  // @apply .py-10;
-
-  &-container {
-    @apply .h-full;
+  &__wrapper {
+    @apply w-full h-full bg-black;
   }
 
-  &-wrapper {
+  &__slide {
+    @apply absolute inset-0 block opacity-0 w-full h-full;
+    
+    img {
+      @apply absolute top-0 left-0 w-full h-full object-cover object-center;
+      max-width: 100%;
+      max-height: 100vh;
+    }
 
-    @apply .w-full .h-full;
-
-    > div {
-
-      @apply .bg-cover .bg-center .bg-no-repeat .hidden .w-full .h-full;
-      
-      img {
-        // @apply .h-full .mx-auto;
-        max-height: 100%;
-  
-        @apply .w-full .h-auto;
-      }
-  
-      &.--active {
-        @apply .block;
-      }
+    &.--active {
+      @apply opacity-100;
     }
   }
 }

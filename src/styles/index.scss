@@ -2,44 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "base";
-
-section {
-  min-height: 100vh;
-
-  @apply top-0 flex flex-col justify-start py-20;
-
-  &.about {
-    @apply sticky top-0 h-screen;
-
-    .container {
-      @apply h-full;
-
-      &-column {
-
-        @screen md {
-          @apply w-1/2;
-        }
-
-        &.links {
-
-          ul {
-
-            @apply flex flex-col justify-around h-full items-start;
-            
-            li {
-              @apply cursor-pointer text-2xl font-hairline border-red-500 border-b-4;
-
-              &:hover {
-                @apply border-transparent opacity-50;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
+@import 'base';
 
 .teaser {
   @apply flex h-full;
@@ -49,49 +12,64 @@ section {
   }
 }
 
-[data-modal] {
-  @apply fixed inset-0 bg-red-700 text-white overflow-y-auto opacity-75;
-
-  transform: translate3D(100vw, 0, 0);
-  transition: all 460ms ease;
-  
-  &.--active {
-    @apply block opacity-100;
-
-    transform: translate3D(0, 0, 0);
-  }
-
-  button {
-    @apply absolute top-0 right-0 p-10 outline-none;
-
-    &:hover {
-      @apply opacity-50;
-    }
-  }
-
-  h1 {
-    @apply text-2xl font-hairline mt-3;
-  }
-
-  h2 {
-    @apply text-xl font-light mt-12;
-  }
-
-  // .container {
-    
-  //   screen md {
-  //     p {
-  //       @apply w-3/5;
-  //     }
-  //   }
-  // }
-}
-
 body {
 
   &.--no-scroll {
     @apply overflow-hidden;
   }
+
+  &.--loading {
+    @apply overflow-hidden h-screen;
+
+    main {
+      @apply opacity-0;
+    }
+
+    .loading-screen {
+      $this-duration: 340ms;
+      
+      @apply fixed inset-0;
+
+      .container {
+        @apply flex h-full items-center justify-center;
+      }
+
+      .head {
+        transform: scale(5);
+        animation: gkAnimation $this-duration cubic-bezier(.86,0,.32,1) forwards;
+
+        @keyframes gkAnimation {
+          0% {
+            opacity: 0;
+            transform: scale(5);
+          }
+          
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      }
+
+      .sub {
+        opacity: 0;
+        animation: subAnimation 840ms ease-out forwards;
+        animation-delay: $this-duration;
+
+        @keyframes subAnimation {
+          0% {
+            opacity: 0;
+          }
+          
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
 }
 
-@import "swiper";
+@import 'about';
+@import 'modal';
+@import 'swiper';

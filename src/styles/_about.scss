@@ -1,0 +1,59 @@
+.about {
+  min-height: 150vh;
+  transition: transform 660ms cubic-bezier(.86,0,.32,1);
+  transform: translate3d(0, 0, 0);
+
+  &.--shift {
+    transform: translate3d(-200px, 0, 0);
+  }
+
+  .container {
+    @apply h-full flex-col items-center;
+
+    @screen lg {
+      @apply flex-row;
+    }
+
+    &-column {
+      @apply w-full;
+
+      @screen lg {
+        @apply w-1/2;
+      }
+
+      &.links {
+        @apply h-full;
+
+        ul {
+          @apply flex flex-col justify-around h-full items-start;
+
+          min-height: 80vh;
+          
+          @screen lg {
+            @apply items-end;
+          }
+
+          li {
+            @apply cursor-pointer text-2xl font-hairline border-red border-b-4 block;
+
+            font-family: Merriweather, 'Times New Roman', Times, serif;
+            transition: all 340ms;
+            transition-property: opacity, border, margin;
+
+            @screen lg {
+              @apply text-3xl;
+            }
+
+            &:hover {
+              @apply border-transparent opacity-50 ml-5;
+
+              @screen lg {
+                @apply mr-5 ml-0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
