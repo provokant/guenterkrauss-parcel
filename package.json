@@ -28,10 +28,19 @@
   "srcSetAssets": {
     "assetsPath": "./src/assets/",
     "breakpoints": {
-      "640w": "640px",
-      "768w": "768px",
-      "1024w": "1024px",
-      "1280w": "1280px"
+      "640w": { 
+        "width": 640,
+        "angle": 90
+      },
+      "768w": { 
+        "width": 768
+      },
+      "1024w": { 
+        "width": 1024
+      },
+      "1280w": { 
+        "width": 1280
+      }
     },
     "allowedExtensions": [
       ".png",
