@@ -33,8 +33,7 @@ export default class Preload {
   private hideLoading(): void {
     const { loading, loadingClass } = this.options
 
-    // document.querySelector(loading).remove()
-    document.querySelector(loading).classList.remove(loadingClass)
+    document.querySelector(loading).remove()
   }
 
   private resetOptions(options: any): void {
