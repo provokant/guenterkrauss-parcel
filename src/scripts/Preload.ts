@@ -18,10 +18,12 @@ export default class Preload {
   private preloadImages() {
     if (!this.allImages) return;
 
+    const { animationDuration } = this.options
+
     window.setTimeout(() => {
       this.resetBody()
       this.hideLoading()
-    }, 1600)
+    }, animationDuration)
   }
 
   private resetBody(): void {
@@ -42,7 +44,8 @@ export default class Preload {
         loading: '.loading-screen',
         loadingClass: '--show',
         bodyClass: '--loading',
-        imageSelector: '[data-preload]'
+        imageSelector: '[data-preload]',
+        animationDuration: 2300
       },
       ...options
     }
@@ -54,4 +57,5 @@ interface Options {
   loadingClass: string
   bodyClass: string
   imageSelector: string
+  animationDuration: number
 }
