@@ -26,8 +26,6 @@ const list = fs.readdirSync(assetsPath)
         return
       }
 
-      console.log(width, angle)
-
       sharp(originalPath)
         .resize(width)
         .toFile(newPath)
