@@ -7,6 +7,14 @@ export default class Preload {
     this.resetOptions(options)
     this.queryAllImages()
     this.preloadImages()
+    this.showLoading()
+  }
+
+  private showLoading() {
+    const { bodyClass, loadingClass, loading } = this.options
+
+    document.body.classList.add(bodyClass)
+    document.querySelector(loading).classList.add(loadingClass)
   }
 
   private queryAllImages(): void {

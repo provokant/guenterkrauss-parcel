@@ -45,64 +45,68 @@ body {
     main {
       @apply opacity-0;
     }
+  }
+}
 
-    .loading-screen {
-      $this-duration: 340ms;
-      
-      @apply fixed inset-0;
+.loading-screen {
+  $this-duration: 340ms;
+  
+  @apply fixed hidden inset-0;
 
-      .container {
-        @apply flex h-full items-center justify-center;
-      }
+  &.--show {
+    @apply block;
+  }
 
-      .head {
-        margin: 0 30%;
-        
-        transform: scale(5);
-        animation: gkAnimation 1200ms cubic-bezier(.86,0,.32,1) forwards;
+  .container {
+    @apply flex h-full items-center justify-center;
+  }
 
-        @keyframes gkAnimation {
-          0% {
-            opacity: 0;
-            transform: scale(10);
-          }
+  .head {
+    margin: 0 30%;
+    
+    transform: scale(5);
+    animation: gkAnimation 1200ms cubic-bezier(.86,0,.32,1) forwards;
 
-          35% {
-            opacity: 0.1;
-          }
-          
-          70% {
-            opacity: 0.5;
-            transform: scale(0.5);
-          }
-
-          80% {
-            transform: scale(0.5);
-          }
-
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-      }
-
-      .sub {
+    @keyframes gkAnimation {
+      0% {
         opacity: 0;
-        animation: subAnimation 240ms ease-out forwards;
-        animation-delay: 960ms;
+        transform: scale(10);
+      }
 
-        @keyframes subAnimation {
-          0% {
-            opacity: 0;
-            transform: scale(0.5);
-          }
-          
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
+      35% {
+        opacity: 0.1;
+      }
+      
+      70% {
+        opacity: 0.5;
+        transform: scale(0.5);
+      }
+
+      80% {
+        transform: scale(0.5);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+
+  .sub {
+    opacity: 0;
+    animation: subAnimation 240ms ease-out forwards;
+    animation-delay: 960ms;
+
+    @keyframes subAnimation {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      
+      100% {
+        opacity: 1;
+        transform: scale(1);
       }
     }
   }
