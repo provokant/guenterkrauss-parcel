@@ -8,7 +8,7 @@
   }
 
   .container {
-    @apply h-full flex-col items-center;
+    @apply h-full flex-col items-stretch;
 
     @screen lg {
       @apply flex-row;
@@ -22,10 +22,22 @@
       }
 
       &.links {
-        @apply h-full;
+        @apply flex flex-col;
+ 
+        min-height: 100%;
+
+        p {
+          @apply text-2xl font-hairline block;
+
+          font-family: Merriweather, 'Times New Roman', Times, serif;
+
+          @screen lg {
+            @apply text-3xl;
+          }
+        }
 
         ul {
-          @apply flex flex-col justify-around h-full items-start;
+          @apply flex flex-col justify-around h-full items-start justify-center;
 
           min-height: 80vh;
           
@@ -42,6 +54,10 @@
 
             @screen lg {
               @apply text-3xl;
+            }
+
+            &:first-child {
+              margin-bottom: 100rem;
             }
 
             &:hover {
