@@ -33,8 +33,7 @@ export default class Modals {
 
         if (dataset.modalWrapper) {
           const { modalWrapper } = dataset
-
-
+          
           this.modifyWrapper(modalWrapper)
           this.wrapperClasses.push(modalWrapper)
         }
