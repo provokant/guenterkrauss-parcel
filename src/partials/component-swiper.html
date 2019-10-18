@@ -2,6 +2,14 @@
   <div class="swiper__wrapper">
     <div class="swiper__slide --active">
       <picture>
+        <source media="(max-width: 640px)" srcset="./src/assets/Test@640w.jpg">
+        <source media="(max-width: 768px)" srcset="./src/assets/Test@768w.jpg">
+        <source media="(max-width: 1024px)" srcset="./src/assets/Test@1024w.jpg">
+        <img src="./src/assets/Test.jpg" data-preload>
+      </picture>
+    </div>
+    <div class="swiper__slide">
+      <picture>
         <source media="(max-width: 640px)" srcset="./src/assets/first-impression@640w.jpg">
         <source media="(max-width: 768px)" srcset="./src/assets/first-impression@768w.jpg">
         <source media="(max-width: 1024px)" srcset="./src/assets/first-impression@1024w.jpg">

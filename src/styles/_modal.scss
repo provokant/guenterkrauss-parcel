@@ -59,6 +59,6 @@
   transition: all 440ms;
 
   &.--active {
-    @apply block fixed opacity-90 z-10;
+    @apply block fixed opacity-75 z-10;
   }
 }
