@@ -51,10 +51,16 @@ body {
 .loading-screen {
   $this-duration: 340ms;
   
-  @apply fixed hidden inset-0;
+  @apply fixed hidden inset-0 bg-white opacity-100;
+
+  transition: opacity $this-duration;
 
   &.--show {
     @apply block;
+  }
+
+  &.--fade-out {
+    @apply opacity-0;
   }
 
   .container {
@@ -64,31 +70,30 @@ body {
   .head {
     margin: 0 30%;
     
-    transform: scale(5);
-    animation: gkAnimation 1200ms cubic-bezier(.86,0,.32,1) forwards;
+    filter: grayscale(1) contrast(3);
+    transform: scale(10);
+    animation: gkAnimation 2000ms cubic-bezier(.86,0,.32,1) forwards;
 
     @keyframes gkAnimation {
       0% {
         opacity: 0;
         transform: scale(10);
+        filter: grayscale(1) contrast(3);
       }
 
       35% {
         opacity: 0.1;
       }
-      
-      70% {
-        opacity: 0.5;
-        transform: scale(0.5);
-      }
 
-      80% {
-        transform: scale(0.5);
+      50% {
+        opacity: 1;
+        transform: scale(1);
+        filter: grayscale(1) contrast(3);
       }
 
       100% {
-        opacity: 1;
         transform: scale(1);
+        filter: grayscale(0) contrast(1);
       }
     }
   }
@@ -96,12 +101,13 @@ body {
   .sub {
     opacity: 0;
     animation: subAnimation 240ms ease-out forwards;
-    animation-delay: 960ms;
+    animation-delay: 900ms;
+    transform: scale(10);
 
     @keyframes subAnimation {
       0% {
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(10);
       }
       
       100% {

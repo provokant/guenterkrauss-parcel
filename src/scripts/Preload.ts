@@ -41,9 +41,13 @@ export default class Preload {
   }
 
   private hideLoading(): void {
-    const { loading, loadingClass } = this.options
+    const { loading, loadingClass, loadingFadeOutClass } = this.options
 
-    document.querySelector(loading).remove()
+    document.querySelector(loading).classList.add(loadingFadeOutClass)
+
+    window.setTimeout(() => {
+      document.querySelector(loading).remove()
+    }, 340);
   }
 
   private resetOptions(options: any): void {
@@ -51,9 +55,10 @@ export default class Preload {
       ...{
         loading: '.loading-screen',
         loadingClass: '--show',
+        loadingFadeOutClass: '--fade-out',
         bodyClass: '--loading',
         imageSelector: '[data-preload]',
-        animationDuration: 2300
+        animationDuration: 2600
       },
       ...options
     }
@@ -63,6 +68,7 @@ export default class Preload {
 interface Options {
   loading: string
   loadingClass: string
+  loadingFadeOutClass: string
   bodyClass: string
   imageSelector: string
   animationDuration: number
