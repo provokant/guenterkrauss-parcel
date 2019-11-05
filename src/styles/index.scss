@@ -72,7 +72,7 @@ body {
     
     filter: grayscale(1) contrast(3);
     transform: scale(10);
-    animation: gkAnimation 2000ms cubic-bezier(.86,0,.32,1) forwards;
+    animation: gkAnimation 3000ms cubic-bezier(.86,0,.32,1) forwards;
 
     @keyframes gkAnimation {
       0% {
@@ -81,11 +81,17 @@ body {
         filter: grayscale(1) contrast(3);
       }
 
-      35% {
+      15% {
         opacity: 0.1;
       }
 
-      50% {
+      20% {
+        opacity: 1;
+        transform: scale(1);
+        filter: grayscale(1) contrast(3);
+      }
+
+      70% {
         opacity: 1;
         transform: scale(1);
         filter: grayscale(1) contrast(3);
@@ -101,7 +107,7 @@ body {
   .sub {
     opacity: 0;
     animation: subAnimation 240ms ease-out forwards;
-    animation-delay: 900ms;
+    animation-delay: 1800ms;
     transform: scale(10);
 
     @keyframes subAnimation {

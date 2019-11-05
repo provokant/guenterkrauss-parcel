@@ -58,7 +58,7 @@ export default class Preload {
         loadingFadeOutClass: '--fade-out',
         bodyClass: '--loading',
         imageSelector: '[data-preload]',
-        animationDuration: 2600
+        animationDuration: 3500
       },
       ...options
     }
