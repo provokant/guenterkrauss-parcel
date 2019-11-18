@@ -25,10 +25,25 @@ h3 {
 
 p {
   line-height: 125%;
-  text-align: justify;
 }
 
 a {
+}
+
+main {
+  @apply opacity-100;
+
+  // transition: opacity 480ms cubic-bezier(.86,0,.32,1);
+  // animation: fadeIn 1000ms cubic-bezier(.86,0,.32,1) forwards;
+
+  // @keyframes fadeIn {
+  //   0% {
+  //     opacity: 0;
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //   }
+  // }
 }
 
 article {

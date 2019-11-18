@@ -1,3 +1,5 @@
+const { colors, fontFamily, opacity } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   theme: {
     extend: {},
@@ -11,6 +13,17 @@ module.exports = {
       'xl': '1.5rem',
       '2xl': '3rem',
       '3xl': '5rem'
+    },
+    colors: {
+      black: '#2D2D2A',
+      gray: colors.gray,
+      red: '#e30018',
+      white: colors.white,
+      transparent: colors.transparent
+    },
+    opacity: {
+      ...opacity,
+      90: '.9'
     }
   },
   variants: {

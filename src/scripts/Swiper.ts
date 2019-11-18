@@ -4,19 +4,25 @@ export default class Swiper {
   private currentPosition: Point
   private currentChild: number
   private options: Options
+  private children: any
 
   constructor(options?: any) {
     this.resetOptions(options)
     this.width = this.updateWidth()
-    this.randomPosition()
-    this.updateChildren()
-    this.attachListener()
+    try {
+      const { children } = this.wrapper
+
+      this.children = children
+      this.randomPosition()
+      this.updateChildren()
+      this.attachListener()
+    } catch(err) {
+      console.warn(`Consider removing Swiper.js from your modules. There are no children found inside "${this.options.wrapperSelector}". Or check your options ... The selector might be wrong.`)
+    }
   }
 
   private randomPosition(): void {
-    const { children } = this.wrapper
-
-    this.currentChild = Math.floor(Math.random() * children.length)
+    this.currentChild = Math.floor(Math.random() * this.children.length)
   }
 
   private attachListener(): void {
@@ -44,9 +50,7 @@ export default class Swiper {
   }
 
   private nextChild(): number {
-    const { children } = this.wrapper
-
-    return (this.currentChild + 1) % children.length
+    return (this.currentChild + 1) % this.children.length
   }
 
   private setCurrentPosition(x: number, y: number = 0) {
@@ -67,13 +71,11 @@ export default class Swiper {
   }
 
   private updateChildren(): void {
-    const { children } = this.wrapper
     const { childClass } = this.options
     const nextChild = this.nextChild()
 
-    children[this.currentChild].classList.remove(childClass)
-    children[nextChild].classList.add(childClass)
-
+    this.children[this.currentChild].classList.remove(childClass)
+    this.children[nextChild].classList.add(childClass)
     this.currentChild = nextChild
   }
 
@@ -87,7 +89,7 @@ export default class Swiper {
     this.options = {
       ...{
         canvasSelector: 'header',
-        wrapperSelector: '.swiper-wrapper',
+        wrapperSelector: '.swiper__wrapper',
         childClass: '--active',
         threshold: 100
       },

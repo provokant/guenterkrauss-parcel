@@ -1,10 +1,16 @@
 [data-modal] {
-  @apply fixed inset-y-0 bg-red-700 text-white overflow-y-auto opacity-100 z-10;
+  @apply fixed inset-y-0 bg-red text-white overflow-y-auto opacity-100 z-20;
 
   // transform: translate3D(, 0, 0);
   left: 100vw;
   right: -100vw;
   transition: all 660ms cubic-bezier(.86,0,.32,1);
+  // transition-property: left, right;
+  width: 100vw;
+
+  @screen lg {
+    width: 50vw;
+  }
   
   &.--active {
     @apply block opacity-100;
@@ -12,6 +18,10 @@
     // transform: translate3D(0, 0, 0);
     left: 0;
     right: 0;
+
+    @screen lg {
+      left: 50vw;
+    }
   }
 
   button {
@@ -31,14 +41,28 @@
   }
 
   p {
-    @apply leading-relaxed text-red-200;
+    @apply leading-relaxed opacity-90;
 
     @screen lg {
-      @apply w-2/3;
+      // @apply w-2/3;
     }
   }
 
   .container {
     @apply pb-32;
+  }
+
+  hr {
+    @apply my-10;
+  }
+}
+
+[data-modal-backdrop] {
+  @apply block inset-0 bg-white opacity-0 z-0;
+
+  transition: all 440ms;
+
+  &.--active {
+    @apply block fixed opacity-75 z-10;
   }
 }

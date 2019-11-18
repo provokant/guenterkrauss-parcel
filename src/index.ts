@@ -2,10 +2,12 @@ import  './styles/index.scss'
 import Modals from './scripts/Modals'
 import Swiper from './scripts/Swiper'
 import Parallax from './scripts/Parallax'
+import Preload from './scripts/Preload'
 
 const swiper = new Swiper({ threshold: 120 })
 const modals = new Modals()
 const parallax = new Parallax()
+const preload = new Preload()
 
 document.addEventListener('keydown', e => {
   const isEscape = 
@@ -19,7 +21,30 @@ document.addEventListener('keydown', e => {
     modals.closeAll()
   }
 })
-// Tomas sah den eigenen Mund im Gesicht seines Sohnes und dachte: Sonderbar, den eigenen Mund stottern zu sehen.
+
+const imprintEl = document.querySelector('.imprint')
+
+document.addEventListener('DOMContentLoaded', () => {
+  imprintEl.classList.add('--collapsed')
+})
+
+imprintEl.addEventListener('click', ({ target }) => {
+  target.classList.remove('--collapsed')
+})
+
+imprintEl.addEventListener('click', ({ target }) => {
+  target.classList.remove('--collapsed')
+})
+
+imprintEl.addEventListener('mouseover', ({ target }) => {
+  target.classList.add('--hover')
+})
+
+imprintEl.addEventListener('mouseout', ({ target }) => {
+  target.classList.remove('--hover')
+})
+
+// Tomas sah den eigenen Mund im Gesicht seines Sohnes und dachte: Sonderbar, den eigenen Mund stottern zu sehen. 
 
 // »In deinem Artikel stand etwas Wunderbares«, fuhr der Sohn fort, und man konnte sehen, daß es ihn Mühe kostete: »Die Kompromißlosigkeit. Diese Fähigkeit kommt uns allmählich abhanden, der Sinn für eine klare Unterscheidung von Gut und Böse. Man weiß nicht mehr, was es heißt, sich schuldig zu fühlen. Die Kommunisten haben die Ausrede, Stalin hätte sie hinters Licht geführt. Der Mörder entschuldigt sich, indem er sagt, seine Mutter hätte ihn nicht geliebt und er wäre frustriert. Du aber hast auf einmal gesagt: Es gibt keine Ausrede. Niemand war in seinem Inneren unschuldiger als Ödipus. Und trotzdem hat er sich selbst bestraft, als er einsah, was er getan hatte.«
 
