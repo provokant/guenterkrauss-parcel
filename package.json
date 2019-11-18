@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node prebuild && parcel index.html --open",
     "build": "node prebuild && parcel build index.html",
-    "host": "parcel index.html --open --hmr-hostname 0.0.0.0:1234",
+    "host": "parcel index.html --open --hmr-hostname 0.0.0.0",
     "prebuild": "node prebuild.js"
   },
   "author": "Michael Werner Czechowski <mail@dailysh.it>",
@@ -29,17 +29,17 @@
   "srcSetAssets": {
     "assetsPath": "./src/assets/",
     "breakpoints": {
-      "640w": { 
+      "640w": {
         "width": 640,
         "angle": 90
       },
-      "768w": { 
+      "768w": {
         "width": 768
       },
-      "1024w": { 
+      "1024w": {
         "width": 1024
       },
-      "1280w": { 
+      "1280w": {
         "width": 1280
       }
     },
