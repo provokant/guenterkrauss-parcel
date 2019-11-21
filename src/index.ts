@@ -7,7 +7,7 @@ import Preload from './scripts/Preload'
 const swiper = new Swiper({ threshold: 120 })
 const modals = new Modals()
 const parallax = new Parallax()
-const preload = new Preload()
+const preload = new Preload({ animationDuration: 0 })
 
 document.addEventListener('keydown', e => {
   const isEscape = 

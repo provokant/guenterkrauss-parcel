@@ -16,6 +16,10 @@
       @screen lg {
         @apply text-3xl;
       }
+
+      &.small {
+        @apply text-xl;
+      }
     }
     a {
       @apply cursor-pointer text-2xl font-hairline border-red border-b-4 block h-full;

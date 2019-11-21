@@ -1,4 +1,4 @@
-const { colors, fontFamily, opacity } = require('tailwindcss/defaultTheme')
+const { colors, fontFamily, opacity, fontSize } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   theme: {
@@ -8,6 +8,7 @@ module.exports = {
       padding: '2rem',
     },
     fontSize: {
+      ...fontSize,
       'base': '1rem',
       'lg': '1.125rem',
       'xl': '1.5rem',
