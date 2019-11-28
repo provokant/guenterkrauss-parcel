@@ -6,7 +6,7 @@ import Preload from './scripts/Preload'
 
 const swiper = new Swiper({ threshold: 120 })
 const modals = new Modals()
-const parallax = new Parallax({ siblingSelector: 'footer' })
+const parallax = new Parallax({ siblingSelector: 'footer', lastElementKey: 65 })
 const preload = new Preload({ animationDuration: 4000 })
 
 document.addEventListener('keydown', e => {

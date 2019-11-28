@@ -3,7 +3,6 @@ export default class Parallax {
   private options: Options
   private elements: ParallaxObject[] = []
   private siblingNode: HTMLElement
-  private lastNode: HTMLElement
 
   constructor(options?: any) {
     this.resetOptions(options)
@@ -19,6 +18,7 @@ export default class Parallax {
 
     this.elements.forEach(({ element, parentNode, parallax }, key) => {
       const { top, bottom } = parentNode.getBoundingClientRect()
+      const { lastElementKey } = this.options
       const { innerHeight } = window
       const threshold = Math.floor((innerHeight - top) / innerHeight * 1000) / 1000
       const factor = innerHeight * parallax
@@ -28,9 +28,9 @@ export default class Parallax {
         element.style.transform = `translate3d(0, ${y}px, 0)`
       }
 
-      if(key === this.elements.length - 1) {
+      if(key === lastElementKey) {
         this.siblingNode.style.marginTop = `${y}px`
-        this.siblingNode.style.paddingBottom = `-${y}px`
+        this.siblingNode.style.paddingBottom = `${-y}px`
       }
     })
 
@@ -69,7 +69,7 @@ export default class Parallax {
 
 interface Options {
   selector: string
-  lastElementSelector: string
+  lastElementKey: number
   siblingSelector: string
 }
 
