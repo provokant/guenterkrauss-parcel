@@ -2,6 +2,8 @@ export default class Parallax {
 
   private options: Options
   private elements: ParallaxObject[] = []
+  private siblingNode: HTMLElement
+  private lastNode: HTMLElement
 
   constructor(options?: any) {
     this.resetOptions(options)
@@ -14,16 +16,21 @@ export default class Parallax {
   }
 
   private scrollEvent(): void {
-    this.elements.forEach(({ element, parentNode, parallax }) => {
+
+    this.elements.forEach(({ element, parentNode, parallax }, key) => {
       const { top, bottom } = parentNode.getBoundingClientRect()
       const { innerHeight } = window
+      const threshold = Math.floor((innerHeight - top) / innerHeight * 1000) / 1000
+      const factor = innerHeight * parallax
+      const y = factor - (1 + threshold * factor)
     
       if (top <= innerHeight && bottom >= 0) {
-        const threshold = Math.floor((innerHeight - top) / innerHeight * 1000) / 1000
-        const factor = innerHeight * parallax
-        const y = factor - (1 + threshold * factor)
-
         element.style.transform = `translate3d(0, ${y}px, 0)`
+      }
+
+      if(key === this.elements.length - 1) {
+        this.siblingNode.style.marginTop = `${y}px`
+        this.siblingNode.style.paddingBottom = `-${y}px`
       }
     })
 
@@ -32,6 +39,11 @@ export default class Parallax {
 
   private assignElements(): void {
     const { selector } = this.options
+    const { siblingSelector } = this.options
+
+    if (siblingSelector && document.querySelector(siblingSelector)) {
+      this.siblingNode = document.querySelector(siblingSelector)
+    }
 
     document.querySelectorAll(selector).forEach(element => {
       const { dataset, parentNode } = element
@@ -57,10 +69,13 @@ export default class Parallax {
 
 interface Options {
   selector: string
+  lastElementSelector: string
+  siblingSelector: string
 }
 
 interface ParallaxObject {
   element: HTMLElement
+  lastElement: HTMLElement
   parentNode: HTMLElement
   parallax: number
 }
