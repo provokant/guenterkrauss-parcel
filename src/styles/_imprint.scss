@@ -15,7 +15,7 @@
     overflow: hidden;
 
     &:after {
-      @apply opacity-100;
+      @apply opacity-100 flex;
     }
   }
 
@@ -27,7 +27,7 @@
   }
 
   &:after {
-    @apply absolute opacity-0 w-full flex flex-col justify-end;
+    @apply hidden absolute opacity-0 w-full flex-col justify-end;
 
     content: "";
     height: $this-height;

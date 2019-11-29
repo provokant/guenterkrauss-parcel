@@ -71,6 +71,16 @@ article {
       @apply text-white;
     }
 
+    a {
+      @apply underline;
+      
+      transition: all 440ms;
+
+      &:hover {
+        @apply no-underline opacity-75;
+      }
+    }
+
     p {
       @apply mb-10 leading-relaxed;
     }
