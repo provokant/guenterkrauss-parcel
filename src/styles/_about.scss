@@ -26,11 +26,11 @@
         @apply hidden;
 
         @screen md {
-          @apply text-lg;
+          @apply block text-lg;
         }
 
         @screen lg {
-          @apply text-xl;
+          @apply block text-xl;
         }
       }
     }
