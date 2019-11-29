@@ -11,24 +11,43 @@
       @apply flex-row;
     }
     p {
-      @apply text-2xl font-hairline block;
+      @apply text-base font-hairline block;
       font-family: Merriweather, 'Times New Roman', Times, serif;
+
+      @screen md {
+        @apply text-2xl;
+      }
+
       @screen lg {
         @apply text-3xl;
       }
 
       &.small {
-        @apply text-xl;
+        @apply hidden;
+
+        @screen md {
+          @apply text-lg;
+        }
+
+        @screen lg {
+          @apply text-xl;
+        }
       }
     }
     a {
-      @apply cursor-pointer text-2xl font-hairline border-red border-b-4 block h-full;
+      @apply cursor-pointer text-base font-hairline border-red border-b-4 block h-full;
       font-family: Merriweather, 'Times New Roman', Times, serif;
       transition: all 340ms;
       transition-property: opacity, border, margin;
+
+      @screen md {
+        @apply text-2xl;
+      }
+
       @screen lg {
         @apply text-3xl;
       }
+
       &:hover {
         @apply border-transparent opacity-50 ml-5;
         @screen lg {
