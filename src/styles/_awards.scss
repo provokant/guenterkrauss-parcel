@@ -1,9 +1,9 @@
-.about {
+.awards {
   min-height: 150vh;
   transition: transform 660ms cubic-bezier(.86, 0, .32, 1);
   transform: translate3d(0, 0, 0);
   &.--shift {
-    transform: translate3d(-200px, 0, 0);
+    transform: translate3d(200px, 0, 0);
   }
   .container {
     @apply h-full flex-col;
