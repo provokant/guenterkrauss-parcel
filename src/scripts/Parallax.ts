@@ -29,8 +29,8 @@ export default class Parallax {
       }
 
       if(key === lastElementKey) {
-        this.siblingNode.style.marginTop = `${y}px`
-        this.siblingNode.style.paddingBottom = `${-y}px`
+        // this.siblingNode.style.marginTop = `${y}px`
+        // this.siblingNode.style.paddingBottom = `${-y}px`
       }
     })
 
