@@ -23,7 +23,7 @@
       }
 
       &.small {
-        @apply hidden;
+        @apply block text-lg;
 
         @screen md {
           @apply block text-lg;

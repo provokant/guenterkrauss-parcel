@@ -63,10 +63,10 @@ article {
   footer {
     @apply sticky top-0 bg-gray-900 text-gray-400 pb-20 overflow-x-hidden;
 
-    $offset: 23000px;
+     //$offset: -23000;
     
-    margin-top: -$offset;
-    padding-bottom: $offset;
+    //margin-top: -$offset;
+    //padding-bottom: $offset; 
 
     h1 {
       @apply text-xl font-hairline;
