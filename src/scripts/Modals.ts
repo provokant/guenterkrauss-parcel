@@ -57,7 +57,7 @@ export default class Modals {
     const { backdropSelector, backdropClass } = this.options
 
     if (this.hasBackdrop) {
-      document.querySelector(backdropSelector).classList.add(backdropClass)
+      document.querySelector(backdropSelector)?.classList.add(backdropClass)
     }
   }
 
@@ -65,7 +65,7 @@ export default class Modals {
     const { backdropSelector, backdropClass } = this.options
 
     if (this.hasBackdrop) {
-      document.querySelector(backdropSelector).classList.remove(backdropClass)
+      document.querySelector(backdropSelector)?.classList.remove(backdropClass)
     }
   }
 
@@ -100,7 +100,7 @@ export default class Modals {
     const { modalClass } = this.options
 
     this.activeModal = id
-    document.getElementById(id).classList.add(modalClass)
+    document.getElementById(id)?.classList.add(modalClass)
   }
 
   private restoreBody(): void {
@@ -119,7 +119,7 @@ export default class Modals {
     const { modalClass } = this.options
 
     if (this.activeModal) {
-      document.getElementById(this.activeModal).classList.remove(modalClass)
+      document.getElementById(this.activeModal)?.classList.remove(modalClass)
     }
     this.activeModal = null
   }
