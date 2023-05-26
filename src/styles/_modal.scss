@@ -60,7 +60,7 @@
 [data-modal-backdrop] {
   @apply block inset-0 bg-white opacity-0 z-0;
 
-  transition: all 440ms;
+  transition: all 460ms;
 
   &.--active {
     @apply block fixed opacity-75 z-10;
