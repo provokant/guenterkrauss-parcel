@@ -36,6 +36,12 @@ export default class Modals {
           
           this.modifyWrapper(modalWrapper)
           this.wrapperClasses.push(modalWrapper)
+        }  
+
+        if(dataset.modalAnchor) {
+          const { modalAnchor, modalTarget } = dataset
+
+          this.scrollToAnchor(modalAnchor, modalTarget)
         }
       })
     })
@@ -138,6 +144,13 @@ export default class Modals {
       },
       ...options
     }
+  }
+
+  private scrollToAnchor(anchor, parent) {
+    const parentElement = document.getElementById(parent)
+    const scrollTo = parentElement?.querySelector(`[id="${anchor}"]`)
+
+    scrollTo?.scrollIntoView()
   }
 }
 

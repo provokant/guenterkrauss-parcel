@@ -54,6 +54,10 @@
           @apply mr-5 ml-0;
         }
       }
+
+      &[data-modal-anchor] {
+        @apply inline;
+      }
     }
   }
   // img {
