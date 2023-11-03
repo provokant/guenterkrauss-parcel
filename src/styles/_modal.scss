@@ -19,13 +19,17 @@
     left: 0;
     right: 0;
 
+    button {
+      @apply fixed z-30;
+    }
+
     @screen lg {
       left: 50vw;
     }
   }
 
   button {
-    @apply absolute top-0 right-0 p-10 outline-none;
+    @apply top-0 right-0 p-10 outline-none;
 
     &:hover {
       @apply opacity-50;
@@ -33,7 +37,11 @@
   }
 
   h1 {
-    @apply text-2xl font-hairline mt-8;
+    @apply text-xl font-hairline mt-8 w-2/3;
+
+    @screen lg {
+      @apply text-2xl w-full;
+    }
   }
 
   h2 {
@@ -49,7 +57,7 @@
   }
 
   .container {
-    @apply pb-32;
+    @apply pb-32 relative;
   }
 
   hr {
