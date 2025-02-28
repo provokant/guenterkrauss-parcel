@@ -8,5 +8,6 @@ dist
 *.log
 # IDE
 .vscode
+.idea
 # Compiled images
 /src/assets/*@*.*
