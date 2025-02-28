@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed|IBM+Plex+Sans:100,200,400,500,700|Merriweather|Abril+Fatface?display=swap");
+
+@import "tailwindcss";
+
+
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -41,7 +46,7 @@ article footer {
 	@apply static top-0 bg-gray-900 text-gray-400 pb-20 overflow-x-hidden;
 }
 article footer h1 {
-	@apply text-xl font-hairline;
+	@apply text-xl font-extralight;
 }
 @media (width >= 64rem) {
 	article footer h1 {
@@ -216,7 +221,7 @@ body.--loading main {
 	}
 }
 .about .container p {
-	@apply text-base font-hairline block;
+	@apply text-base font-extralight block;
 	font-family: Merriweather, "Times New Roman", Times, serif;
 }
 @media (width >= 48rem) {
@@ -243,7 +248,7 @@ body.--loading main {
 	}
 }
 .about .container a {
-	@apply cursor-pointer text-base font-hairline border-red border-b-4 block h-full;
+	@apply cursor-pointer text-base font-extralight border-red-600 border-b-4 block h-full;
 	font-family: Merriweather, "Times New Roman", Times, serif;
 	transition: all 340ms;
 	transition-property: opacity, border, margin;
@@ -297,7 +302,7 @@ body.--loading main {
 }
 
 [data-modal] {
-	@apply fixed inset-y-0 bg-red text-white overflow-y-auto opacity-100 z-20;
+	@apply fixed inset-y-0 bg-red-600 text-white overflow-y-auto opacity-100 z-20;
 	left: 100vw;
 	right: -100vw;
 	transition: all 660ms cubic-bezier(0.86, 0, 0.32, 1);
@@ -328,7 +333,7 @@ body.--loading main {
 	@apply opacity-50;
 }
 [data-modal] h1 {
-	@apply text-xl font-hairline mt-8 w-2/3;
+	@apply text-xl font-extralight mt-8 w-2/3;
 }
 @media (width >= 64rem) {
 	[data-modal] h1 {
