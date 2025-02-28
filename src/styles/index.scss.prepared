@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed|IBM+Plex+Sans:100,200,400,500,700|Merriweather|Abril+Fatface?display=swap");
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+h1 {
+  font-family: Merriweather, "Times New Roman", Times, serif;
+}
+
+h1, h2, h3, h4, h5 {
+  /* @apply mb-4; */
+}
+
+h2 {
+  /* @apply text-xl; */
+}
+
+h3 {
+  /* @apply text-lg; */
+}
+
+p {
+  line-height: 125%;
+}
+
+main {
+  /* @apply opacity-100; */
+}
+
+article header {
+  /* @apply static top-0 overflow-hidden h-screen; */
+  bottom: 100vh;
+}
+article section {
+  min-height: 100vh;
+  /* @apply sticky flex flex-col justify-start py-20 bg-white; */
+}
+article footer {
+  /* @apply static top-0 bg-gray-900 text-gray-400 pb-20 overflow-x-hidden; */
+}
+article footer h1 {
+  /* @apply text-xl font-hairline; */
+}
+@media (width >= 64rem) {
+  article footer h1 {
+    /* @apply text-2xl; */
+  }
+}
+article footer h2 {
+  /* @apply text-lg; */
+}
+@media (width >= 64rem) {
+  article footer h2 {
+    /* @apply text-xl; */
+  }
+}
+article footer h1, article footer h2, article footer h3 {
+  /* @apply text-white; */
+}
+article footer a {
+  /* @apply underline; */
+  transition: all 440ms;
+}
+article footer a:hover {
+  /* @apply no-underline opacity-75; */
+}
+article footer p {
+  /* @apply mb-10 leading-relaxed; */
+}
+article footer .container {
+  /* @apply mx-auto; */
+}
+article footer .container .flex {
+  /* @apply flex-col; */
+}
+@media (width >= 64rem) {
+  article footer .container .flex {
+    /* @apply flex-row; */
+  }
+}
+article footer .opening-hours {
+  /* @apply w-full; */
+}
+@media (width >= 64rem) {
+  article footer .opening-hours {
+    /* @apply w-1/3; */
+  }
+}
+article footer .opening-hours__inner {
+  /* @apply pt-20; */
+}
+@media (width >= 64rem) {
+  article footer .opening-hours__inner {
+    /* @apply border-gray-700 border-r; */
+  }
+}
+article footer .imprint {
+  /* @apply w-full mt-8 py-20; */
+}
+@media (width >= 64rem) {
+  article footer .imprint {
+    /* @apply w-2/3 mt-0 pl-20; */
+  }
+}
+
+.teaser {
+  /* @apply flex h-full; */
+}
+.teaser .container {
+  /* @apply z-10; */
+}
+.teaser .logo {
+  /* @apply flex justify-between flex-col h-full py-12; */
+}
+.teaser .logo__inner {
+  /* @apply w-32; */
+}
+@media (width >= 48rem) {
+  .teaser .logo__inner {
+    /* @apply w-56; */
+  }
+}
+.teaser .logo__inner__main {
+  margin: 0 30%;
+}
+.teaser .logo__inner__sub {
+  /* @apply w-full */
+}
+
+body.--no-scroll {
+  /* @apply overflow-hidden; */
+}
+body.--loading {
+  /* @apply overflow-hidden h-screen; */
+}
+body.--loading main {
+  /* @apply opacity-0; */
+}
+
+.loading-screen {
+  /* @apply fixed hidden inset-0 bg-white opacity-100; */
+  transition: opacity 340ms;
+}
+.loading-screen.--show {
+  /* @apply block; */
+}
+.loading-screen.--fade-out {
+  /* @apply opacity-0; */
+}
+.loading-screen .container {
+  /* @apply flex h-full items-center justify-center; */
+}
+.loading-screen .head {
+  margin: 0 30%;
+  filter: grayscale(1) contrast(3);
+  transform: scale(10);
+  animation: gkAnimation 3000ms cubic-bezier(0.86, 0, 0.32, 1) forwards;
+}
+@keyframes gkAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(10);
+    filter: grayscale(1) contrast(3);
+  }
+  15% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+    filter: grayscale(1) contrast(3);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+    filter: grayscale(1) contrast(3);
+  }
+  100% {
+    transform: scale(1);
+    filter: grayscale(0) contrast(1);
+  }
+}
+.loading-screen .sub {
+  opacity: 0;
+  animation: subAnimation 240ms ease-out forwards;
+  animation-delay: 1800ms;
+  transform: scale(10);
+}
+@keyframes subAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(10);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.about {
+  min-height: 150vh;
+  transition: transform 660ms cubic-bezier(0.86, 0, 0.32, 1);
+  transform: translate3d(0, 0, 0);
+}
+.about.--shift {
+  transform: translate3d(-200px, 0, 0);
+}
+.about .container {
+  /* @apply h-full flex-col; */
+}
+@media (width >= 64rem) {
+  .about .container {
+    /* @apply flex-row; */
+  }
+}
+.about .container p {
+  /* @apply text-base font-hairline block; */
+  font-family: Merriweather, "Times New Roman", Times, serif;
+}
+@media (width >= 48rem) {
+  .about .container p {
+    /* @apply text-2xl; */
+  }
+}
+@media (width >= 64rem) {
+  .about .container p {
+    /* @apply text-3xl; */
+  }
+}
+.about .container p.small {
+  /* @apply block text-lg; */
+}
+@media (width >= 48rem) {
+  .about .container p.small {
+    /* @apply block text-lg; */
+  }
+}
+@media (width >= 64rem) {
+  .about .container p.small {
+    /* @apply block text-xl; */
+  }
+}
+.about .container a {
+  /* @apply cursor-pointer text-base font-hairline border-red border-b-4 block h-full; */
+  font-family: Merriweather, "Times New Roman", Times, serif;
+  transition: all 340ms;
+  transition-property: opacity, border, margin;
+}
+@media (width >= 48rem) {
+  .about .container a {
+    /* @apply text-2xl; */
+  }
+}
+@media (width >= 64rem) {
+  .about .container a {
+    /* @apply text-3xl; */
+  }
+}
+.about .container a:hover {
+  /* @apply border-transparent opacity-50 ml-5; */
+}
+@media (width >= 64rem) {
+  .about .container a:hover {
+    /* @apply mr-5 ml-0; */
+  }
+}
+.about .container a[data-modal-anchor] {
+  /* @apply inline; */
+}
+
+.imprint {
+  /* @apply overflow-hidden relative; */
+  max-height: 100%;
+  padding-bottom: 40rem;
+  transition: all 360ms;
+}
+.imprint.--collapsed {
+  /* @apply overflow-hidden cursor-pointer; */
+  max-height: 40rem;
+  overflow: hidden;
+}
+.imprint.--collapsed:after {
+  /* @apply opacity-100 flex; */
+}
+.imprint.--hover:after {
+  content: "Impressum ausklappen";
+}
+.imprint:after {
+  /* @apply hidden absolute opacity-0 w-full flex-col justify-end; */
+  content: "";
+  height: 40rem;
+  bottom: 0;
+  background: linear-gradient(0deg, #1a202c, rgba(26, 32, 44, 0));
+  transition: all 360ms;
+}
+
+[data-modal] {
+  /* @apply fixed inset-y-0 bg-red text-white overflow-y-auto opacity-100 z-20; */
+  left: 100vw;
+  right: -100vw;
+  transition: all 660ms cubic-bezier(0.86, 0, 0.32, 1);
+  width: 100vw;
+}
+@media (width >= 64rem) {
+  [data-modal] {
+    width: 50vw;
+  }
+}
+[data-modal].--active {
+  /* @apply block opacity-100; */
+  left: 0;
+  right: 0;
+}
+[data-modal].--active button {
+  /* @apply fixed z-30; */
+}
+@media (width >= 64rem) {
+  [data-modal].--active {
+    left: 50vw;
+  }
+}
+[data-modal] button {
+  /* @apply top-0 right-0 px-10 outline-none; */
+}
+[data-modal] button:hover {
+  /* @apply opacity-50; */
+}
+[data-modal] h1 {
+  /* @apply text-xl font-hairline mt-8 w-2/3; */
+}
+@media (width >= 64rem) {
+  [data-modal] h1 {
+    /* @apply text-2xl w-full; */
+  }
+}
+[data-modal] h2 {
+  /* @apply text-xl mt-12; */
+}
+[data-modal] p {
+  /* @apply leading-relaxed opacity-90; */
+}
+[data-modal] .container {
+  /* @apply pb-32 relative; */
+}
+[data-modal] hr {
+  /* @apply my-10; */
+}
+
+[data-modal-backdrop] {
+  /* @apply block inset-0 bg-white opacity-0 z-0; */
+  transition: all 460ms;
+}
+[data-modal-backdrop].--active {
+  /* @apply block fixed opacity-75 z-10; */
+}
+
+.swiper {
+  /* @apply h-full; */
+}
+.swiper__wrapper {
+  /* @apply w-full h-full bg-black; */
+}
+.swiper__slide {
+  /* @apply absolute inset-0 block opacity-0 w-full h-full; */
+}
+.swiper__slide img {
+  /* @apply absolute top-0 left-0 w-full h-full object-cover object-center; */
+  max-width: 100%;
+  max-height: 100vh;
+}
+.swiper__slide.--active {
+  /* @apply opacity-100; */
+}

@@ -1,6 +1,7 @@
 const { colors, fontFamily, opacity, fontSize } = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  content: ["./src/*.{html,js,ts,css,scss}"],
   theme: {
     extend: {},
     container: {

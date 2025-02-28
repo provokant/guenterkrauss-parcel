@@ -1,8 +1,10 @@
 {
   "name": "nls-parcel-gk",
-  "version": "1.0.0-0",
+  "version": "2.0.0",
   "description": "",
-  "main": "index.html",
+  "engines": {
+    "node": "22"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node prebuild && parcel index.html --open",
@@ -11,22 +13,27 @@
     "host": "parcel index.html --open --hmr-hostname 0.0.0.0",
     "prebuild": "node prebuild.js"
   },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "author": "Michael Werner Czechowski <mail@dailysh.it>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
-    "parcel": "^2.0.0-alpha.2.1",
-    "parcel-bundler": "^1.12.4",
-    "sass": "^1.23.7",
-    "tailwindcss": "^1.0.5",
+    "@parcel/transformer-sass": "^2.13.3",
+    "autoprefixer": "^10.4.20",
+    "parcel": "^2.13.3",
+    "postcss": "^8.5.3",
+    "sass": "^1.85.1",
+    "tailwindcss": "^4.0.9",
     "typescript": "^3.2.1"
   },
   "dependencies": {
+    "@parcel/config-default": "^2.13.3",
+    "@parcel/transformer-typescript-tsc": "^2.13.3",
+    "@tailwindcss/postcss": "^4.0.9",
     "@types/swiper": "^4.4.3",
     "posthtml-img-autosize": "^0.1.4",
     "posthtml-include": "^1.2.0",
-    "sharp": "^0.23.0",
-    "swiper": "^4.5.0"
+    "sharp": "^0.33.5",
+    "swiper": "^11.2.4"
   },
   "srcSetAssets": {
     "assetsPath": "./src/assets/",
