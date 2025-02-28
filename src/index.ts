@@ -1,4 +1,4 @@
-import  './styles/index.scss'
+import  './styles/index.css'
 import Modals from './scripts/Modals'
 import Swiper from './scripts/Swiper'
 import Parallax from './scripts/Parallax'
