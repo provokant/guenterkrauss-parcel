@@ -1,9 +1,8 @@
-@use "sass:meta";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@include meta.load-css('base');
+@import 'base';
 
 .teaser {
   @apply flex h-full;
@@ -125,7 +124,7 @@ body {
   }
 }
 
-@include meta.load-css('about');
-@include meta.load-css('imprint');
-@include meta.load-css('modal');
-@include meta.load-css('swiper');
+@import 'about';
+@import 'imprint';
+@import 'modal';
+@import 'swiper';

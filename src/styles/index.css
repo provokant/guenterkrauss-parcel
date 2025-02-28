@@ -1,3 +1,186 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+ @import "tailwindcss";
+ 
+ /*
+ @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed|IBM+Plex+Sans:100,200,400,500,700|Merriweather|Abril+Fatface?display=swap');
+ */
+html, body {
+	 margin: 0;
+	 padding: 0;
+	 font-family: 'IBM Plex Sans', sans-serif;
+}
+ h1 {
+	 font-family: Merriweather, 'Times New Roman', Times, serif;
+}
+h1, h2, h3, h4, h5 {
+    @apply mb-4;
+  }
+  
+  h2 {
+    @apply text-xl;
+  }
+  
+  h3 {
+    @apply text-lg;
+  }
+ p {
+	 line-height: 125%;
+}
+main {
+    @apply opacity-100;
+}
+ article header {
+    @apply static top-0 overflow-hidden h-screen;
+	 bottom: 100vh;
+}
+ article section {
+	 min-height: 100vh;
+     @apply sticky flex flex-col justify-start py-20 bg-white;
+}
+article footer {
+    @apply static top-0 bg-gray-900 text-gray-400 pb-20 overflow-x-hidden;
+
+}
+article footer h1 {
+    @apply text-xl;
+}
+article footer h2 {
+    @apply text-lg;
+}
+article footer h1, h2, h3 {
+    @apply text-white;
+  }
+ article footer a:hover {
+    @apply no-underline opacity-75;
+  }
+article footer a {
+    @apply underline;
+	 transition: all 440ms;
+}
+article footer  p {
+    @apply mb-10 leading-relaxed;
+  }
+  article footer .container {
+    @apply mx-auto;
+  }
+  article footer .container .flex {
+    @apply flex-col;
+  }
+  article footer .opening-hours {
+    @apply w-full;
+
+  }
+  article footer .opening-hours__inner {
+    @apply pt-20;
+
+  }
+  article footer .imprint {
+    @apply w-full mt-8 py-20;
+
+  }
+ .teaser .logo__inner__main {
+	 margin: 0 30%;
+}
+ .loading-screen {
+	 transition: opacity 340ms;
+}
+ .loading-screen .head {
+	 margin: 0 30%;
+	 filter: grayscale(1) contrast(3);
+	 transform: scale(10);
+	 animation: gkAnimation 3000ms cubic-bezier(0.86, 0, 0.32, 1) forwards;
+}
+ @keyframes gkAnimation {
+	 0% {
+		 opacity: 0;
+		 transform: scale(10);
+		 filter: grayscale(1) contrast(3);
+	}
+	 15% {
+		 opacity: 0.1;
+	}
+	 20% {
+		 opacity: 1;
+		 transform: scale(1);
+		 filter: grayscale(1) contrast(3);
+	}
+	 70% {
+		 opacity: 1;
+		 transform: scale(1);
+		 filter: grayscale(1) contrast(3);
+	}
+	 100% {
+		 transform: scale(1);
+		 filter: grayscale(0) contrast(1);
+	}
+}
+ .loading-screen .sub {
+	 opacity: 0;
+	 animation: subAnimation 240ms ease-out forwards;
+	 animation-delay: 1800ms;
+	 transform: scale(10);
+}
+ @keyframes subAnimation {
+	 0% {
+		 opacity: 0;
+		 transform: scale(10);
+	}
+	 100% {
+		 opacity: 1;
+		 transform: scale(1);
+	}
+}
+ .about {
+	 min-height: 150vh;
+	 transition: transform 660ms cubic-bezier(0.86, 0, 0.32, 1);
+	 transform: translate3d(0, 0, 0);
+}
+ .about.--shift {
+	 transform: translate3d(-200px, 0, 0);
+}
+ .about .container p {
+	 font-family: Merriweather, 'Times New Roman', Times, serif;
+}
+ .about .container a {
+	 font-family: Merriweather, 'Times New Roman', Times, serif;
+	 transition: all 340ms;
+	 transition-property: opacity, border, margin;
+}
+ .imprint {
+	 max-height: 100%;
+	 padding-bottom: 40rem;
+	 transition: all 360ms;
+}
+ .imprint.--collapsed {
+	 max-height: 40rem;
+	 overflow: hidden;
+}
+ .imprint.--hover:after {
+	 content: "Impressum ausklappen";
+}
+ .imprint:after {
+	 content: "";
+	 height: 40rem;
+	 bottom: 0;
+	 background: linear-gradient(0deg, #1a202c, rgba(26, 32, 44, 0));
+	 transition: all 360ms;
+}
+ [data-modal] {
+	 left: 100vw;
+	 right: -100vw;
+	 transition: all 660ms cubic-bezier(0.86, 0, 0.32, 1);
+	 width: 100vw;
+}
+
+ [data-modal].--active {
+	 left: 0;
+	 right: 0;
+}
+ [data-modal-backdrop] {
+	 transition: all 460ms;
+}
+ .swiper__slide img {
+	 max-width: 100%;
+	 max-height: 100vh;
+}
+ 
