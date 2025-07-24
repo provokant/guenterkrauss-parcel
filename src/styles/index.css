@@ -225,12 +225,12 @@ body.--loading main {
 }
 @media (width >= 48rem) {
 	.about .container p {
-		@apply text-2xl;
+		@apply text-4xl;
 	}
 }
 @media (width >= 64rem) {
 	.about .container p {
-		@apply text-3xl;
+		@apply text-8xl;
 	}
 }
 .about .container p.small {
@@ -254,12 +254,12 @@ body.--loading main {
 }
 @media (width >= 48rem) {
 	.about .container a {
-		@apply text-2xl;
+		@apply text-4xl;
 	}
 }
 @media (width >= 64rem) {
 	.about .container a {
-		@apply text-3xl;
+		@apply text-8xl;
 	}
 }
 .about .container a:hover {
@@ -347,6 +347,7 @@ body.--loading main {
 }
 [data-modal] .container {
 	@apply pb-32 relative;
+	padding: 2rem;
 }
 [data-modal] hr {
 	@apply my-10;
@@ -377,3 +378,14 @@ body.--loading main {
 .swiper__slide.--active {
 	@apply opacity-100;
 }
+.container {
+	@apply mx-auto;
+	
+	.flex {
+	  @apply flex-col;
+
+	  @screen lg {
+		@apply flex-row;
+	  }
+	}
+  }
