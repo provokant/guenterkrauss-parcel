@@ -1,4 +1,4 @@
-import  './styles/index.css'
+import './styles/index.css'
 import Modals from './scripts/Modals'
 import Swiper from './scripts/Swiper'
 import Parallax from './scripts/Parallax'
@@ -6,7 +6,7 @@ import Preload from './scripts/Preload'
 
 const swiper = new Swiper({ threshold: 120 })
 const modals = new Modals()
-const parallax = new Parallax({ siblingSelector: 'footer', lastElementKey: 65 })
+const parallax = new Parallax({ siblingSelector: 'footer', lastElementKey: 67 })
 const preload = new Preload({ animationDuration: 4000 })
 
 document.addEventListener('keydown', e => {
@@ -14,32 +14,41 @@ document.addEventListener('keydown', e => {
     e.keyCode === 27 
     || e.key === 'Escape' 
     || e.key === 'Esc'
-    ? true
-    : false
 
   if (isEscape) {
     modals.closeAll()
   }
 })
 
-const imprintEl = document.querySelector('.imprint')
+const imprintEl = document.querySelector('.imprint') as HTMLElement | null
 
-document.addEventListener('DOMContentLoaded', () => {
-  imprintEl.classList.add('--collapsed')
-})
+if (imprintEl) {
+  document.addEventListener('DOMContentLoaded', () => {
+    imprintEl.classList.add('--collapsed')
+  })
 
-imprintEl.addEventListener('click', ({ target }) => {
-  target.classList.remove('--collapsed')
-})
+  imprintEl.addEventListener('click', (event: MouseEvent) => {
+    const target = event.currentTarget as HTMLElement
 
-imprintEl.addEventListener('click', ({ target }) => {
-  target.classList.remove('--collapsed')
-})
+    const isCollapsed = target.classList.contains('--collapsed')
 
-imprintEl.addEventListener('mouseover', ({ target }) => {
-  target.classList.add('--hover')
-})
+    if (isCollapsed) {
+      target.classList.remove('--collapsed')
+      target.classList.add('--expanded')
+      target.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      target.classList.add('--collapsed')
+      target.classList.remove('--expanded')
+    }
+  })
 
-imprintEl.addEventListener('mouseout', ({ target }) => {
-  target.classList.remove('--hover')
-})
+  imprintEl.addEventListener('mouseover', (event: MouseEvent) => {
+    const target = event.currentTarget as HTMLElement
+    target.classList.add('--hover')
+  })
+
+  imprintEl.addEventListener('mouseout', (event: MouseEvent) => {
+    const target = event.currentTarget as HTMLElement
+    target.classList.remove('--hover')
+  })
+}
